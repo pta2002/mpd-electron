@@ -25,7 +25,6 @@ export default {
     })
 
     this.$electron.ipcRenderer.on('status', (event, state) => {
-      console.log(state.state)
       this.$store.commit('setstatus', state)
     })
 

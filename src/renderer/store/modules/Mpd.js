@@ -11,7 +11,8 @@ const state = {
     'mixrampdb': '0.00000',
     'state': 'stop'
   },
-  art: null
+  art: null,
+  lastupdate: new Date().getTime() / 1000
 }
 
 const mutations = {
@@ -26,6 +27,7 @@ const mutations = {
   },
   setstatus (state, status) {
     state.status = status
+    state.lastupdate = new Date().getTime() / 1000
   },
   setvol (state, vol) {
     state.status.vol = vol
