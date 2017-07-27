@@ -37,5 +37,13 @@ describe('MPD', () => {
       }
       assert.deepEqual(response, mpd.parseMpdResponse(toParse))
     })
+
+    it('should parse an array', () => {
+      let toParse = 'Album: T\nAlbum: D'
+      let response = {
+        'Album': ['T', 'D']
+      }
+      assert.deepEqual(response, mpd.parseMpdResponse(toParse))
+    })
   })
 })

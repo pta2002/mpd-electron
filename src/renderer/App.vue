@@ -1,15 +1,18 @@
 <template>
   <div id="app">
+    <main-bar></main-bar>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import albumArt from 'album-art'
+import MainBar from '@/components/MainBar'
 import 'font-awesome/css/font-awesome.css'
 
 export default {
   name: 'mpd',
+  components: { MainBar },
   mounted () {
     this.$electron.ipcRenderer.on('song', (event, song) => {
       this.$store.commit('setsong', song)

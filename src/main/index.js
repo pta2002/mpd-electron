@@ -86,6 +86,7 @@ function createMpd () {
   ipcMain.on('run', (event, cmd, args) => {
     mpdClient.sendCommand(mpd.cmd(cmd, args), (err, msg) => {
       if (err) throw err
+      event.sender.send('response', mpdHelper.parseMpdResponse(msg))
     })
   })
 }

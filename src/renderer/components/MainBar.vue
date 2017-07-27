@@ -38,7 +38,7 @@ import VueSlider from 'vue-range-slider'
 import moment from 'moment'
 
 export default {
-  name: 'main',
+  name: 'mainbar',
   components: { TopBar, VueSlider },
   data () {
     return { time: new Date().getTime() / 1000 }
