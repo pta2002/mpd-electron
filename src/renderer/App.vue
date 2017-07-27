@@ -104,13 +104,24 @@ $breakpoint-large: 60em; // 960px
   width: 100%;
 }
 
+.row-flex {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+
+.col-flex {
+  position: relative;
+  float: left;
+}
+
 .row [class^="col"] {
   float: left;
   margin: 0.5rem 2%;
   min-height: 0.125rem;
 }
 
-.row [class^="col-r"] {
+.row [class$="-r"] {
   float: right;
   margin: 0.5rem 2%;
   min-height: 0.125rem;
@@ -137,18 +148,18 @@ $breakpoint-large: 60em; // 960px
   width: $width;
 }
 
-.col-1-sm { width:($width / 12) - ($gutter * 11 / 12); }
-.col-2-sm { width: ($width / 6) - ($gutter * 10 / 12); }
-.col-3-sm { width: ($width / 4) - ($gutter * 9 / 12); }
-.col-4-sm { width: ($width / 3) - ($gutter * 8 / 12); }
-.col-5-sm { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
-.col-6-sm { width: ($width / 2) - ($gutter * 6 / 12); }
-.col-7-sm { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
-.col-8-sm { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
-.col-9-sm { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
-.col-10-sm { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
-.col-11-sm { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
-.col-12-sm { width: $width; }
+.col-1-sm, .col-1-sm-r { width:($width / 12) - ($gutter * 11 / 12); }
+.col-2-sm, .col-2-sm-r { width: ($width / 6) - ($gutter * 10 / 12); }
+.col-3-sm, .col-3-sm-r { width: ($width / 4) - ($gutter * 9 / 12); }
+.col-4-sm, .col-4-sm-r { width: ($width / 3) - ($gutter * 8 / 12); }
+.col-5-sm, .col-5-sm-r { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
+.col-6-sm, .col-6-sm-r { width: ($width / 2) - ($gutter * 6 / 12); }
+.col-7-sm, .col-7-sm-r { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
+.col-8-sm, .col-8-sm-r { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
+.col-9-sm, .col-9-sm-r { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
+.col-10-sm, .col-10-sm-r { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
+.col-11-sm, .col-11-sm-r { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
+.col-12-sm, .col-12-sm-r { width: $width; }
 
 @media only screen and (min-width: $breakpoint-med) {
   .col-1 { width:($width / 12) - ($gutter * 11 / 12); }

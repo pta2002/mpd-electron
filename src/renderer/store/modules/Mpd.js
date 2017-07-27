@@ -26,6 +26,9 @@ const mutations = {
   },
   setstatus (state, status) {
     state.status = status
+  },
+  setvol (state, vol) {
+    state.status.vol = vol
   }
 }
 
