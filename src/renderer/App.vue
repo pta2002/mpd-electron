@@ -6,6 +6,7 @@
 
 <script>
 import albumArt from 'album-art'
+import 'font-awesome/css/font-awesome.css'
 
 export default {
   name: 'mpd',
@@ -23,7 +24,13 @@ export default {
       }
     })
 
+    this.$electron.ipcRenderer.on('status', (event, state) => {
+      console.log(state.state)
+      this.$store.commit('setstatus', state)
+    })
+
     this.$electron.ipcRenderer.send('getsong')
+    this.$electron.ipcRenderer.send('getstatus')
   }
 }
 </script>
@@ -62,6 +69,14 @@ body {
   color: #2c3e50;
 }
 
+.pull-right {
+  float: right;
+}
+
+.right {
+  text-align: right !important;
+}
+
 // Simple grid
 $width: 96%;
 $gutter: 4%;
@@ -91,6 +106,12 @@ $breakpoint-large: 60em; // 960px
 
 .row [class^="col"] {
   float: left;
+  margin: 0.5rem 2%;
+  min-height: 0.125rem;
+}
+
+.row [class^="col-r"] {
+  float: right;
   margin: 0.5rem 2%;
   min-height: 0.125rem;
 }

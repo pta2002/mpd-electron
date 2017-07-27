@@ -60,12 +60,32 @@ function createMpd () {
         mainWindow.webContents.send('song', mpdHelper.parseMpdResponse(msg))
       })
     }
+
+    if (name === 'mixer' || name === 'player') {
+      mpdClient.sendCommand(mpd.cmd('status', []), (err, msg) => {
+        if (err) throw err
+        mainWindow.webContents.send('status', mpdHelper.parseMpdResponse(msg))
+      })
+    }
   })
 
   ipcMain.on('getsong', (event) => {
     mpdClient.sendCommand(mpd.cmd('currentsong', []), (err, msg) => {
       if (err) throw err
       event.sender.send('song', mpdHelper.parseMpdResponse(msg))
+    })
+  })
+
+  ipcMain.on('getstatus', (event) => {
+    mpdClient.sendCommand(mpd.cmd('status', []), (err, msg) => {
+      if (err) throw err
+      event.sender.send('status', mpdHelper.parseMpdResponse(msg))
+    })
+  })
+
+  ipcMain.on('run', (event, cmd, args) => {
+    mpdClient.sendCommand(mpd.cmd(cmd, args), (err, msg) => {
+      if (err) throw err
     })
   })
 }
