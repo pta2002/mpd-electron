@@ -3,16 +3,15 @@
     .row
       .col-9
         .row
-          .col-2-sm
+          .col-1-sm
             img(:src="art" class="album-bar-thumb")
-          .col-10-sm.song
-            .wrap
-              div(v-if="song != null")
-                h4.song {{ song.Title }}
-                p.song By <b>{{ song.Artist }}</b> from <b>{{ song.Album }}</b>
-              div(v-else)
-                h4.song Not playing
-                p.song Pick something to play!
+          .col-11-sm.song
+            div(v-if="song != null")
+              h4.song {{ song.Title }}
+              p.song By <b>{{ song.Artist }}</b> from <b>{{ song.Album }}</b>
+            div(v-else)
+              h4.song Not playing
+              p.song Pick something to play!
         .row
           .col-1-sm
             p {{ timeformat(elapsed) }}
@@ -76,7 +75,7 @@ export default {
   mounted () {
     setInterval(() => {
       if (this.$store.state.Mpd.status['state'] === 'play') {
-        this.time += 0.01
+        this.time = new Date().getTime() / 1000
       }
     }, 10)
   },

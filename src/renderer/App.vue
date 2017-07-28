@@ -63,6 +63,7 @@ $font-weight-light: 300;
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -94,7 +95,7 @@ body, html {
 
 .view {
   flex: 1 1 100%;
-  overflow: scroll;
+  overflow: auto;
   margin: 0;
 }
 

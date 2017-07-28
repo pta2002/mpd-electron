@@ -6,13 +6,18 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/albums',
       name: 'main-page',
       component: require('@/components/AlbumView')
     },
     {
-      path: '*',
-      redirect: '/'
+      path: '/albums/:artist/:album',
+      name: 'view-album',
+      component: require('@/components/AlbumDetails')
+    },
+    {
+      path: '/',
+      redirect: '/albums'
     }
   ]
 })
