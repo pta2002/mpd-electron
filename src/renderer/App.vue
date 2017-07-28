@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <main-bar></main-bar>
-    <router-view></router-view>
+    <main-bar style="flex: 0 0 auto"></main-bar>
+    <router-view class="view"></router-view>
   </div>
 </template>
 
@@ -71,12 +71,31 @@ body {
   color: #2c3e50;
 }
 
+body, html {
+  height: 100%;
+}
+
 .pull-right {
   float: right;
 }
 
 .right {
   text-align: right !important;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+}
+
+.view {
+  flex: 1 1 100%;
+  overflow: scroll;
+  margin: 0;
 }
 
 // Simple grid

@@ -1,8 +1,9 @@
 <template lang="pug">
-  .container
-    h1 Albums
-    ul
-      li(v-for="song in songs") {{ song.name }} - {{ song.artist }}
+  div
+    .container
+      h1 Albums
+      ul
+        li(v-for="song in songs") {{ song.name }} - {{ song.artist }}
 </template>
 
 <script>
