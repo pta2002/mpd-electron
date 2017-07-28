@@ -20,7 +20,7 @@
             vue-slider(:min="0" :max="duration" :step="0.01" v-model="elapsed" :tooltip="false" :real-time="false" style="width: 100%")
           .col-1-sm
             p {{ timeformat(duration) }}
-      .col-3-sm-r(v-if="song != null")
+      .col-3-sm(v-if="song != null")
         .row.center
           a(@click="prev").mixbtn: i.fa.fa-backward
           a(@click="pause" v-if="state == 'play'").mixbtn: i.fa.fa-pause
@@ -29,7 +29,6 @@
           a(@click="next").mixbtn: i.fa.fa-forward
         .row.center
           vue-slider(:min="0" :max="100" :step="1" v-model="volume" :tooltip="false" style="width: 100%")
-    .row
 </template>
 
 <script>

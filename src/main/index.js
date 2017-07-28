@@ -83,10 +83,10 @@ function createMpd () {
     })
   })
 
-  ipcMain.on('run', (event, cmd, args) => {
+  ipcMain.on('run', (event, cmd, args, id = '') => {
     mpdClient.sendCommand(mpd.cmd(cmd, args), (err, msg) => {
       if (err) throw err
-      event.sender.send('response', mpdHelper.parseMpdResponse(msg))
+      event.sender.send('response' + id, mpdHelper.parseMpdResponse(msg))
     })
   })
 }
