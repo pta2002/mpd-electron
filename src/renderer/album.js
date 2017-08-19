@@ -11,8 +11,9 @@ export default class {
     ipcRenderer.send('run', 'find', ['album', this.name, 'albumartist', this.artist], name)
     ipcRenderer.once('response' + name, (event, data) => {
       let songs = []
-      for (let id in data.Title) {
-        songs.push(new Song(data.Title[id], data.Artist[id]))
+      console.log(data)
+      for (let id in data.file) {
+        songs.push(new Song(data.file[id]))
       }
       this.songs = songs
     })
@@ -21,5 +22,13 @@ export default class {
       if (err) throw err
       if (url) this.url = url
     })
+  }
+
+  play () {
+    ipcRenderer.send('run', 'clear', [])
+    this.songs.forEach((song) => {
+      ipcRenderer.send('run', 'add', [song.file])
+    })
+    ipcRenderer.send('run', 'play', [0])
   }
 }

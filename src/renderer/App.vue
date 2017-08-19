@@ -99,6 +99,23 @@ body, html {
   margin: 0;
 }
 
+.btn {
+  width: 100%;
+  text-align: center;
+  display: block;
+  color: #ecf0f1;
+  background: #2980b9;
+  border: 1px solid #2980b9;
+  cursor: pointer;
+  border-radius: 2em;
+  padding: .5rem;
+  transition: 200ms;
+
+  &:hover {
+    background: #3498db;
+  }
+}
+
 // Simple grid
 $width: 96%;
 $gutter: 4%;

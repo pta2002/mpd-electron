@@ -12,7 +12,8 @@ const state = {
     'state': 'stop'
   },
   art: null,
-  lastupdate: new Date().getTime() / 1000
+  lastupdate: new Date().getTime() / 1000,
+  current: null
 }
 
 const mutations = {
@@ -31,6 +32,9 @@ const mutations = {
   },
   setvol (state, vol) {
     state.status.vol = vol
+  },
+  setcurrent (state, cur) {
+    state.current = cur
   }
 }
 

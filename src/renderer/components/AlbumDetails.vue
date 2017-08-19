@@ -21,6 +21,10 @@
               .col-1-sm {{ timeformat(song.duration) }}
         .col-3-sm
           img(:src="url").coverimg
+          .row
+            a.btn(@click="play")
+              i.fa.fa-play
+              |  Play album
 </template>
 
 <script>
@@ -48,6 +52,10 @@ export default {
         time = parseFloat(time)
       }
       return moment(time * 1000).format('mm:ss')
+    },
+    play () {
+      this.album.play()
+      this.$store.commit('setcurrent', this.album)
     }
   }
 }

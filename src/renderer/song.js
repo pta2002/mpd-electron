@@ -1,12 +1,11 @@
 import { ipcRenderer } from 'electron'
 
 export default class {
-  constructor (name, artist) {
-    this.name = name
-    this.artist = artist
+  constructor (file) {
+    this.file = file
 
-    ipcRenderer.send('run', 'find', ['title', this.name], name)
-    ipcRenderer.once('response' + name, (event, data) => {
+    ipcRenderer.send('run', 'find', ['file', file], file)
+    ipcRenderer.once('response' + file, (event, data) => {
       for (let key in data) {
         this[key.toLocaleLowerCase()] = data[key]
       }
